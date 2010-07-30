@@ -1,5 +1,9 @@
 This is a jQuery bookmarklet to extract an attribution string and link from a Flickr photo page.
 
+Create a bookmark in your browser wit the following location to use this bookmarklet:
+
+javascript:(function(){var%20head=document.getElementsByTagName('head')[0],script=document.createElement('script');script.type='text/javascript';script.src='http://geoff.terrorware.com/hacks/flickr-attribute/flickr-attribute.js?'%20+%20Math.floor(Math.random()*99999);head.appendChild(script);})();%20void%200
+
 At the time that I wrote this bookmarklet, I was using the the Monochrome Author theme (similar to the Monochrome Pro theme available at http://graphpaperpress.com/themes/monochrome-pro/) by Graph Paper Press.  It requires that you have an image associated with each post, so I frequently grab Creative Commons licensed photos for posts where I didn't take a photo.  I got tired of building the photo attribution string and link back to the photo by hand, so I made the bookmarklet to generate it with one click.
 
 This is my first attempt at writing a bookmarklet and using jQuery.

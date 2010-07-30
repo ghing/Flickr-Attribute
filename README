@@ -1,0 +1,10 @@
+This is a jQuery bookmarklet to extract an attribution string and link from a Flickr photo page.
+
+At the time that I wrote this bookmarklet, I was using the the Monochrome Author theme (similar to the Monochrome Pro theme available at http://graphpaperpress.com/themes/monochrome-pro/) by Graph Paper Press.  It requires that you have an image associated with each post, so I frequently grab Creative Commons licensed photos for posts where I didn't take a photo.  I got tired of building the photo attribution string and link back to the photo by hand, so I made the bookmarklet to generate it with one click.
+
+This is my first attempt at writing a bookmarklet and using jQuery.
+
+I make use of the very helpful jQuery Bookmarklet by Brett Barros with modifications by Paul Irish (http://latentmotion.com/how-to-create-a-jquery-bookmarkliet/) as well as the zeroclipboard library for copying the text to the system clipboard. 
+
+There are probably some bugs with this code as well as lots of room for improvement.  In particular, it would be nice to have the z-index of the bar displayed by the widget set so it covers all the FLickr page elements, but I couldn't set a high z-index without messing up the zeroclipboard functionality.
+

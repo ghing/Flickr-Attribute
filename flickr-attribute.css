@@ -1,0 +1,27 @@
+#flickr-attribute {
+  background: none repeat scroll 0 0 #222222;
+  color: #ffffff;
+  display: block;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+/*  z-index: 1002; */
+}
+
+#flickr-attribute-text {
+  width: 300px;
+}
+
+#flickr-attribute-copy-button, #flickr-attribute-close-button {
+  border:1px solid white; 
+  margin: 0.5em;
+  padding: 0.25em;
+  display: inline-block;
+/*  z-index: 1002; */
+}
+
+#flickr-attribute-close-button a {
+  color: white !important;
+  text-decoration: none !important;
+}

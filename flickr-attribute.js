@@ -16,7 +16,7 @@ window.bookmarklet = function(opts){fullFunc(opts)};
 // These are the styles, scripts and callbacks we include in our bookmarklet:
 window.bookmarklet({
 
-    // You can include your own js/css, but I don't need to in this case.
+    // You can include your own js/css
     js  : ['http://geoff.terrorware.com/js/zeroclipboard/ZeroClipboard.js'],    
     css : ['http://geoff.terrorware.com/hacks/flickr-attribute/flicker-attribute.css'],
     //jqpath : 'myCustomjQueryPath.js', <-- option to include your own path to jquery
@@ -24,12 +24,15 @@ window.bookmarklet({
 	// The meat of your jQuery code goes here
         ZeroClipboard.setMoviePath( 'http://geoff.terrorware.com/js/zeroclipboard/ZeroClipboard.swf' );
 
-	username = $("b[property='foaf:name']").html();
-        user_photostream_url = "http://flickr.com" + $("a[data-ywa-name='Account name']").attr("href");
+	username = $(".username a").html();
+        username_href = $(".username a").attr("href");
+        realname = $(".realname a").html();
+        user_photostream_url = "http://flickr.com" + username_href;
         photo_url = window.location.href;
+        name = (realname != '') ? realname : username; 
 
         attribution_text = "Photo by <a href=\"" + user_photostream_url + 
-                          "\">" + username + "</a> via <a href=\"" + photo_url +
+                          "\">" + name + "</a> via <a href=\"" + photo_url +
                           "\">Flickr</a>." 
 
         bar_html = '<div id="flickr-attribute"><input id="flickr-attribute-text" type="text" /> <div id="flickr-attribute-copy-button">Copy</div> <div id="flickr-attribute-close-button"><a onclick="close_flickr_attribute();">Close</a></div></div>' 

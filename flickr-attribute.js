@@ -29,11 +29,20 @@ window.bookmarklet({
         realname = $(".realname a").html();
         user_photostream_url = "http://flickr.com" + username_href;
         photo_url = window.location.href;
-        name = (realname != '') ? realname : username; 
+        name = (realname != 'No real name given') ? realname : username; 
+        license_url = $("a[rel*='license']").attr("href");
+        if (license_url) {
+          license_url_parts = license_url.split('/');
+          license = license_url_parts[4];
+          license_text = " using a <a href=\"" + license_url + "\">CC-" + license.toUpperCase() + "</a> license";
+        }
+        else {
+          license_text = '';
+        }
 
         attribution_text = "Photo by <a href=\"" + user_photostream_url + 
                           "\">" + name + "</a> via <a href=\"" + photo_url +
-                          "\">Flickr</a>." 
+                          "\">Flickr</a>" + license_text + "."; 
 
         bar_html = '<div id="flickr-attribute"><input id="flickr-attribute-text" type="text" /> <div id="flickr-attribute-copy-button">Copy</div> <div id="flickr-attribute-close-button"><a onclick="close_flickr_attribute();">Close</a></div></div>' 
 
@@ -46,13 +55,7 @@ window.bookmarklet({
         clip.addEventListener( 'mouseDown', function(client) { 
             // set text to copy here
             clip.setText($("#flickr-attribute-text").attr("value"));
-            console.debug("text copied");
         } );
-
-        clip.addEventListener( 'load', function(client) {
-            console.debug( "movie is loaded" );
-                                                                                        } );
-
 
         clip.glue('flickr-attribute-copy-button');
                         
